@@ -1,31 +1,31 @@
-import { loadUsers, loadProfile } from './loaders'
-import { renderUserProfile, renderSearchResult } from './views'
-import { toggleSpinner } from './helpers'
+import { loadUsers, loadProfile } from './loaders';
+import { renderError, renderUserProfile, renderSearchResult } from './views';
+import toggleSpinner from './helpers';
 
-export function handleSearchClick(e) {
-  let usernameField = document.querySelector('#username')
-  toggleSpinner()
+export function handleSearchClick() {
+  const usernameField = document.querySelector('#username');
+  toggleSpinner();
   loadUsers(usernameField.value)
   .then(data => renderSearchResult(data))
   .catch(message => renderError(message))
-  .then(response => toggleSpinner())
+  .then(() => toggleSpinner());
+}
+
+function showAccountProfile(accountId) {
+  const profile = document.querySelector('#profile');
+  toggleSpinner();
+  loadProfile(accountId)
+    .then(data => renderUserProfile(data))
+    .then((html) => {
+      profile.innerHTML = html;
+      return html;
+    })
+    .then(() => toggleSpinner());
 }
 
 export function handleUserClick(e) {
   const userNode = e.target;
-  const accountId = userNode.dataset.id
-  userNode.classList.toggle('active')
-  showAccountProfile(accountId)
-}
-
-function showAccountProfile(accountId) {
-  let profile = document.querySelector('#profile')
-  toggleSpinner()
-  loadProfile(accountId)
-    .then(data => renderUserProfile(data))
-    .then(html => {
-      profile.innerHTML = html
-      return html
-    })
-    .then(data => toggleSpinner())
+  const accountId = userNode.dataset.id;
+  userNode.classList.toggle('active');
+  showAccountProfile(accountId);
 }

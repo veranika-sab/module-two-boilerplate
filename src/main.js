@@ -1,6 +1,6 @@
 
-import { handleSearchClick } from './handlers'
-import './main.css'
+import { handleSearchClick } from './handlers';
+import './main.css';
 /*
 full API description you can find here:
 https://ru.wargaming.net/developers/api_reference
@@ -10,6 +10,6 @@ It will be passed automatically via proxy server
 */
 
 document.addEventListener('DOMContentLoaded', () => {
-  let searchButton = document.querySelector('#search');
+  const searchButton = document.querySelector('#search');
   searchButton.addEventListener('click', handleSearchClick);
-})
+});

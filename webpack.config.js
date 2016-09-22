@@ -1,11 +1,12 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
-    webpack = require('webpack')
-var path = require('path')
-var appPath = path.join(__dirname, 'src')
+    webpack = require('webpack');
+var path = require('path');
+var root = path.join(__dirname);
+var appPath = path.join(__dirname, 'src');
 
-var env = process.env.NODE_ENV || 'dev'
-var debug = env !== 'production'
+var env = process.env.NODE_ENV || 'dev';
+var debug = env !== 'production';
 
 var plugins = [
   new HtmlWebpackPlugin({
@@ -14,13 +15,13 @@ var plugins = [
     minify: false
   }),
   new CleanWebpackPlugin(['dist'], {
-    root: appPath,
+    root: root,
     verbose: true
   })
 ]
 
 if (!debug) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin())
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
 module.exports = {
@@ -30,7 +31,7 @@ module.exports = {
   devtool: 'cheap-module-inline-source-map',
   debug: debug,
   output: {
-    path: './src/dist',
+    path: './dist',
     filename: '[hash].bundle.js'
   },
   devServer: {
@@ -41,7 +42,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel'
+        loaders: ['babel'] //, 'eslint']
       },
       {
         test: /\.css$/,
