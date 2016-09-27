@@ -2,8 +2,7 @@ import { handleUserClick } from './handlers';
 
 export function renderAccount(account) {
   return `
-    <div class="search-results_item js-account" data-id="${account.account_id}">
-    ${account.nickname}</div>
+    <div class="search-results_item js-account" data-id="${account.account_id}">${account.nickname}</div>
   `;
 }
 
