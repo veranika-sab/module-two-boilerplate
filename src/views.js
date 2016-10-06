@@ -12,15 +12,15 @@ export function renderError(message) {
   searchResults.innerHTML = message;
 }
 
-export function renderUserProfile({ nickname, globalRating, statistics }) {
+export function renderUserProfile({ nickname, global_rating: globalRating, statistics }) {
   const { wins, battles } = statistics.all;
   const winsPercent = ((wins / battles) * 100).toFixed(2);
   return `
-    <h1>${nickname}</h1>
+    <p style="font-size:50px"><span class="glyphicon glyphicon-user"> ${nickname}<span></p>
     <div>
-    <p>Ratings: ${globalRating}</p>
-    <p>Battles: ${battles}</p>
-    <p>Wins Percent: ${winsPercent} %<p>
+    <p class="bg-primary">Ratings: ${globalRating}</p>
+    <p class="bg-success">Battles: ${battles}</p>
+    <p class="bg-info">Wins Percent: ${winsPercent} %<p>
     </div>
   `;
 }

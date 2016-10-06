@@ -1,4 +1,4 @@
-
+import 'bootstrap/dist/css/bootstrap.css';
 import { handleSearchClick } from './handlers';
 import './main.css';
 /*

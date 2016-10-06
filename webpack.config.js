@@ -42,18 +42,23 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'] //, 'eslint']
+        loaders: ['babel', 'eslint'],
+        exclude: /node_modules/
       },
       {
         test: /\.css$/,
         loaders: ['style', 'css']
       },
       {
-        test: /\.(gif|png|jpe?g)$/,
+        test: /\.(svg|gif|png|jpe?g)$/,
         loader: 'file',
         query: {
           name: '[path][name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: 'file'
       }
     ]
   },

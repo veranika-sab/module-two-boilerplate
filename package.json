@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/veranika-sab/module-two-boilerplate#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "webpack": "~1.13.2"
   },
   "devDependencies": {

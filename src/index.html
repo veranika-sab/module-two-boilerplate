@@ -2,20 +2,28 @@
 <html>
   <head>
     <title>WG public API app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 <body>
-  <div class="search">
-    <input id="username" type="search" placeholder="search for username" name="search" value="">
-    <button id="search" type="button" name="button">Search</button>
-  </div>
-  <div class="results">
-    <div id="spinner" class="spinner"></div>
-
-    <div class="view">
-      <div id="search-results" class="view-list"></div>
-      <div id="profile" class="view_profile"></div>
+  <div class="container">
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-font"></span></div>
+            <div class="search">
+              <input id="username" class="form-control" type="search" placeholder="search for username" name="search" value="">
+            </div>
+          </div>
+        </div>
+        <button id="search" type="button" name="button" class="btn btn-primary">Search</button>
+      </form>
+    <div class="results">
+      <div id="spinner" class="spinner"></div>
+      <div class="view">
+        <div id="search-results" class="view-list col-md4"></div>
+        <div id="profile" class="view_profile col-md8"></div>
+      </div>
     </div>
   </div>
-
 </body>
 </html>
